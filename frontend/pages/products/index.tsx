@@ -29,6 +29,7 @@ const ProductList = () => {
     <div>
       <TextField variant="outlined" />
       <h1>Lots of nice products!</h1>
+      <h2> If you buy 3 products we will spam you with marketing!!</h2>
       {products.map((product) => {
         return (
           <div key={product.id}>

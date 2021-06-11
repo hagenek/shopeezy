@@ -21,6 +21,9 @@ const storeModel: StoreModel = {
     price: 94127.96,
     discount: 49,
   },
+  setProduct: action((state, payload) => {
+    state.product = payload;
+  }),
   products: [
     {
       id: 10,
@@ -38,9 +41,6 @@ const storeModel: StoreModel = {
       discount: 49,
     },
   ],
-  setProduct: action((state, payload) => {
-    state.product = payload;
-  }),
   setProducts: action((state, payload) => {
     state.products = payload;
   }),
