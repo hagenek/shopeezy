@@ -14,7 +14,7 @@ const ProductList = () => {
   useEffect(() => {
     fetch("http://localhost:8080/products")
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => setProducts(data));
   }, []);
 
   const searchInNameOfProductFilterFunction = (product, term) => {
@@ -22,15 +22,20 @@ const ProductList = () => {
   };
 
   const filterProductsOnSearchTerm = (term) => {
-    return products.filter(searchInNameOfProductFilterFunction(product, term));
+    return products?.filter(searchInNameOfProductFilterFunction(product, term));
   };
 
   return (
     <div>
-      <TextField></TextField>
+      <TextField variant="outlined" />
       <h1>Lots of nice products!</h1>
-      {filterProductsOnSearchTerm(term).map((product) => {
-        return <p>{product.name}</p>;
+      {products.map((product) => {
+        return (
+          <div key={product.id}>
+            <h1>Hello</h1>
+            <p>{product.name}</p>
+          </div>
+        );
       })}
       <h2>Name: {product.name}</h2>
       <h3>Price: {product.price}</h3>
