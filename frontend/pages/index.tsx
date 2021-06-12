@@ -1,10 +1,11 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import Head from "next/head";
 import ProductCard from "../components/ProductCard";
 import Image from "next/image";
 import ProductList from "./products/[id]";
-import { useStoreState } from "../hooks/storeHooks";
+import { useStoreActions, useStoreState } from "../hooks/storeHooks";
 import styled from "styled-components";
+import axios from "axios";
 
 const ProductsContainer = styled.div`
   min-height: 85vh;
@@ -12,6 +13,14 @@ const ProductsContainer = styled.div`
 
 const Home: FC = () => {
   const product = useStoreState((state) => state.product);
+  const setProducts = useStoreActions((action) => action.setProducts);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await axios.get("http:localhost:3000/api/products");
+      setProducts(res.data);
+    };
+  }, []);
 
   return (
     <>

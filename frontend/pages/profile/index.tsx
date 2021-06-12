@@ -4,6 +4,7 @@ import styled from "styled-components";
 const ProfileContainer = styled.article`
   height: 80vh;
 `;
+
 const Profile = () => {
   const user = useStoreState((state) => state.user);
 

@@ -2,12 +2,13 @@ import React, { FC, useState } from "react";
 import axios from "axios";
 import { useStoreState } from "../../hooks/storeHooks";
 import { Products } from "../../constants/types";
+import ProductList from "../products/[id]";
 
 interface ShoppingCartProps {
   cartData: any;
 }
 
-const ShoppingCart: FC<ShoppingCartProps> = ({ cartData }) => {
+const ShoppingCart: any = ({ cartData }) => {
   const products = useStoreState((state) => state.products);
   const cart = cartData[0];
   const [productsInCart, setProductsInCart] = useState({} as Products);
@@ -15,10 +16,13 @@ const ShoppingCart: FC<ShoppingCartProps> = ({ cartData }) => {
   console.log(cart);
 
   const productListFromCart = () => {
-    const products = cartData[5].map((products) => {});
+    const products = cartData[5].products.map((prod: any) =>
+      products.find((p: any) => p.id === prod.id)
+    );
+    setProductsInCart(products);
   };
 
-  return <div></div>;
+  return <div>{productsInCart[0].name}</div>;
 };
 
 export default ShoppingCart;
