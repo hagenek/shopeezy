@@ -1,8 +1,8 @@
 import { TextField } from "@material-ui/core";
 import React, { FC, useEffect, useState } from "react";
-import { useStoreActions, useStoreState } from "../../hooks/storeHooks";
-import Banner from "../../components/Banner";
-import { Products } from "../../constants/types";
+import { useStoreActions, useStoreState } from "../hooks/storeHooks";
+import Banner from "./Banner";
+import { Products } from "../constants/types";
 
 interface ProductListProps {
   productsData: Products;
@@ -52,7 +52,7 @@ const ProductList: FC<ProductListProps> = ({ productsData }) => {
 export default ProductList;
 
 export async function getServerSideProps(context) {
-  const res = await fetch(`http://localhost:3000/api/products`);
+  const res = await fetch(`http://localhost:3000/api/products/`);
   const productData = await res.json();
 
   if (!productData) {

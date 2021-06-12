@@ -8,4 +8,8 @@ describe("With Enzyme", () => {
     const app = shallow(<App />);
     expect(app.find("p").text()).toEqual("Welcome to Shopeezy!");
   });
+  it("Page has profile link", () => {
+    const app = shallow(<App />);
+    expect(app.find("a").text()).toEqual("Profile");
+  });
 });

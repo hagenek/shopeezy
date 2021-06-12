@@ -2,8 +2,17 @@ import React, { FC } from "react";
 import Head from "next/head";
 import ProductCard from "../components/ProductCard";
 import Image from "next/image";
+import ProductList from "./products/[id]";
+import { useStoreState } from "../hooks/storeHooks";
+import styled from "styled-components";
 
-const index: FC = () => {
+const ProductsContainer = styled.div`
+  min-height: 85vh;
+`;
+
+const Home: FC = () => {
+  const product = useStoreState((state) => state.product);
+
   return (
     <>
       <Head>
@@ -21,10 +30,12 @@ const index: FC = () => {
         />
         <title>Shopeezy</title>
       </Head>
-      <Image src="/logo.png" width={463} height={122} alt="Shopeezy logo" />
-      <ProductCard></ProductCard>
+      <ProductsContainer>
+        <Image src="/logo.png" width={463} height={122} alt="Shopeezy logo" />
+        <ProductCard product={product}></ProductCard>
+      </ProductsContainer>
     </>
   );
 };
 
-export default index;
+export default Home;

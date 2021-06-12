@@ -9,3 +9,34 @@ export type Product = {
 };
 
 export type Products = Product[];
+
+export type CartItem = {
+  id: number;
+  quantity: number;
+};
+
+export type Order = {
+  id: number;
+  products: CartItem[];
+};
+
+export type Address = {
+  country: string;
+  city: string;
+  zip: string;
+  street: string;
+};
+
+export type User = {
+  orders: Order[];
+  id: number;
+  name: {
+    firstName: string;
+    lastName: string;
+  };
+  phone: string;
+  avatar: string;
+  email: string;
+  address: Address;
+  role: string;
+};
