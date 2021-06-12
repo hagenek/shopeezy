@@ -36,3 +36,7 @@ body {
   background-color: #04aa6d;
   color: white;
 }
+
+button:hover {
+  opacity: 0.7;
+}

@@ -14,6 +14,11 @@ const index: FC = () => {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+          rel="stylesheet"
+        />
         <title>Shopeezy</title>
       </Head>
       <Image src="/logo.png" width={463} height={122} alt="Shopeezy logo" />

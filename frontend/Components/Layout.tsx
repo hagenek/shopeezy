@@ -8,7 +8,7 @@ const Layout = ({ children }: React.PropsWithChildren<{}>) => {
         <Header />
       </header>
       <main>{children}</main>
-      <footer> Placeholder footer</footer>
+      <footer>COPYRIGHT ©2021</footer>
     </div>
   );
 };

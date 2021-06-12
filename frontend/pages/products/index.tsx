@@ -2,9 +2,13 @@ import { TextField } from "@material-ui/core";
 import React, { FC, useEffect, useState } from "react";
 import { useStoreActions, useStoreState } from "../../hooks/storeHooks";
 import Banner from "../../components/Banner";
-import Products from "../../constants";
+import { Products } from "../../constants/types";
 
-const ProductList = ({ data }: Products) => {
+interface ProductListProps {
+  data: Products;
+}
+
+const ProductList: FC<ProductListProps> = ({ data }) => {
   const setProduct = useStoreActions((action) => action.setProduct);
   const product = useStoreState((state) => state.product);
 
@@ -12,7 +16,7 @@ const ProductList = ({ data }: Products) => {
 
   const [filteredProducts, setFilteredProducts] = useState([{}]);
 
-  const setProducts = useStoreActions((action) => action.setProduct);
+  const setProducts = useStoreActions((action) => action.setProducts);
   const products = useStoreState((state) => state.products);
 
   useEffect(() => {
@@ -23,12 +27,12 @@ const ProductList = ({ data }: Products) => {
     return product.name.includes(term);
   };
 
-  const handleSearchInputChange = (e: any) => {
-    setTerm(e.target.value);
-  };
-
-  const filterProductsOnSearchTerm = (term) => {
-    return products?.filter(searchInNameOfProductFilterFunction(product, term));
+  const handleInputChange = (term) => {
+    const searchResults = products.filter((product) => {
+      return product.name.includes(term);
+    });
+    setFilteredProducts(searchResults);
+    console.log("Filtered products: ", filteredProducts);
   };
 
   return (
@@ -37,15 +41,14 @@ const ProductList = ({ data }: Products) => {
       <h1>{term}</h1>
       <TextField
         variant="outlined"
+        label="Search for a product"
         value={term}
-        onChange={handleSearchInputChange}
+        onChange={(event) => handleInputChange(event.target.value)}
       />
       <div key={product.id}>
         <h1>Hello</h1>
         <p>{product.name}</p>
       </div>
-      <h2>Name: {product.name}</h2>
-      <h3>Price: {product.price}</h3>
     </div>
   );
 };
