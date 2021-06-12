@@ -11,6 +11,21 @@ const CardTitle = styled.h1`
 const DefaultProductImage = styled.img`
   max-width: 200px;
 `;
+
+const BorderStyling = styled.div`
+  border: solid 3px black;
+`;
+
+const AddToCartButton = styled.button`
+  padding: 10px 25px;
+  color: #fff;
+  background-color: black;
+`;
+
+const PriceText = styled.p`
+  color: #fff;
+  font-size: 1.5em;
+`;
 /*
 {
   id: 10,
@@ -33,11 +48,14 @@ const ProductCard = () => {
   const product = useStoreState((state) => state.product);
 
   return (
-    <Grid item>
-      <p>{product.name}</p>
-      <CardTitle>{product.name}</CardTitle>
-      <DefaultProductImage src={product.defaultImage} />
-    </Grid>
+    <BorderStyling>
+      <Grid item>
+        <CardTitle>{product.name}</CardTitle>
+
+        <DefaultProductImage src={product.defaultImage} />
+        <AddToCartButton />
+      </Grid>
+    </BorderStyling>
   );
 };
 
