@@ -1,14 +1,12 @@
 import React from "react";
 import Header from "./Header";
-
+import Footer from "./Footer";
 const Layout = ({ children }: React.PropsWithChildren<{}>) => {
   return (
     <div>
-      <header>
-        <Header />
-      </header>
+      <Header />
       <main>{children}</main>
-      <footer>COPYRIGHT ©2021</footer>
+      <Footer />
     </div>
   );
 };

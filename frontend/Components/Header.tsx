@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <div>
+    <header>
       <div className="topnav">
         <a className="active" href="#home">
           Shopeezy
@@ -9,7 +9,7 @@ const Header = () => {
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
       </div>
-    </div>
+    </header>
   );
 };
 

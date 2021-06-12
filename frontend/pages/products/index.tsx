@@ -5,30 +5,27 @@ import Banner from "../../components/Banner";
 import { Products } from "../../constants/types";
 
 interface ProductListProps {
-  data: Products;
+  productsData: Products;
 }
 
-const ProductList: FC<ProductListProps> = ({ data }) => {
-  const setProduct = useStoreActions((action) => action.setProduct);
-  const product = useStoreState((state) => state.product);
-
+const ProductList: FC<ProductListProps> = ({ productsData }) => {
   const [term, setTerm] = useState("");
 
   const [filteredProducts, setFilteredProducts] = useState([{}]);
 
   const setProducts = useStoreActions((action) => action.setProducts);
-  const products = useStoreState((state) => state.products);
+  const globalProducts = useStoreState((state) => state.products);
 
   useEffect(() => {
-    setProducts(data);
+    setProducts(productsData);
   }, []);
 
   const searchInNameOfProductFilterFunction = (product, term) => {
     return product.name.includes(term);
   };
 
-  const handleInputChange = (term) => {
-    const searchResults = products.filter((product) => {
+  const handleInputChange = (term: string) => {
+    const searchResults = productsData.filter((product) => {
       return product.name.includes(term);
     });
     setFilteredProducts(searchResults);
@@ -45,10 +42,9 @@ const ProductList: FC<ProductListProps> = ({ data }) => {
         value={term}
         onChange={(event) => handleInputChange(event.target.value)}
       />
-      <div key={product.id}>
-        <h1>Hello</h1>
-        <p>{product.name}</p>
-      </div>
+      {filteredProducts.map(() => (
+        <h1>Hello world</h1>
+      ))}
     </div>
   );
 };
@@ -56,16 +52,16 @@ const ProductList: FC<ProductListProps> = ({ data }) => {
 export default ProductList;
 
 export async function getServerSideProps(context) {
-  const res = await fetch(`http://localhost:8080/products`);
-  const data = await res.json();
+  const res = await fetch(`http://localhost:3000/api/products`);
+  const productData = await res.json();
 
-  if (!data) {
+  if (!productData) {
     return {
       notFound: true,
     };
   }
 
   return {
-    props: { data }, // will be passed to the page component as props
+    props: { productData }, // will be passed to the page component as props
   };
 }
