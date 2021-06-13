@@ -4,6 +4,7 @@ import React, { FC, useEffect } from "react";
 import { Product, Products } from "../constants/types";
 import { ProductCardContainer } from "../hagenek-ui/card-styles";
 import ProductCard from "./ProductCard";
+import { Container } from "@material-ui/core";
 
 const AllProducts: FC<any> = () => {
   const globalProducts = useStoreState((state) => state.products);
@@ -19,11 +20,13 @@ const AllProducts: FC<any> = () => {
   }, []);
 
   return (
-    <ProductCardContainer>
-      {globalProducts?.map((product: Product) => (
-        <ProductCard product={product} key={product.id}></ProductCard>
-      ))}
-    </ProductCardContainer>
+    <Container>
+      <ProductCardContainer>
+        {globalProducts?.map((product: Product) => (
+          <ProductCard product={product} key={product.id}></ProductCard>
+        ))}
+      </ProductCardContainer>
+    </Container>
   );
 };
 

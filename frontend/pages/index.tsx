@@ -3,6 +3,9 @@ import { useStoreActions, useStoreState } from "../hooks/storeHooks";
 import AllProducts from "../components/AllProducts";
 import styled from "styled-components";
 import axios from "axios";
+import HeroBanner from "../components/HeroBanner";
+import { Container } from "@material-ui/core";
+import { ProductCardContainer } from "../hagenek-ui/card-styles";
 
 const ProductsContainer = styled.div`
   min-height: 85vh;
@@ -21,7 +24,8 @@ const Home: FC = () => {
 
   return (
     <>
-      <AllProducts></AllProducts>
+      <HeroBanner />
+      <AllProducts />
     </>
   );
 };

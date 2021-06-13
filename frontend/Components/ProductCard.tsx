@@ -8,6 +8,8 @@ import {
   PriceText,
   ProductCardContainer,
 } from "../hagenek-ui/card-styles";
+import { useStoreState } from "../hooks/storeHooks";
+import { AddToast } from "react-toast-notifications";
 
 interface ProductCardProps {
   product: Product;
@@ -15,8 +17,13 @@ interface ProductCardProps {
 }
 
 const ProductCard: FC<ProductCardProps> = ({ product, key }) => {
+  const globalProducts = useStoreState((store) => store.products);
+  const findProductById = (id: number, products) =>
+    products.find((product) => product.id === id);
+
   const addItemToCart = (id: number) => {
     console.log("Product ID", id);
+    /*  AddToast(`Item ${findProductById(id, globalProducts).name} added to cart`); */
   };
 
   return (

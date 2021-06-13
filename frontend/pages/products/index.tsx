@@ -8,6 +8,7 @@ import Button from "../../hagenek-ui/button";
 import Form from "../../hagenek-ui/form";
 import ProductCard from "../../components/ProductCard";
 import styled from "styled-components";
+import HeroBanner from "../../components/HeroBanner";
 
 const ProductCardContainer = styled.section`
   display: flex;
@@ -48,6 +49,7 @@ const ProductList: FC<ProductListProps> = () => {
 
   return (
     <Container>
+      <HeroBanner />
       <Form>
         <TextField
           size="medium"

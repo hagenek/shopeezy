@@ -1,4 +1,4 @@
-import Document, { Html, Head } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import React from "react";
 import { ServerStyleSheet } from "styled-components";
 
@@ -7,6 +7,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <meta />
           <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
@@ -28,6 +29,10 @@ export default class MyDocument extends Document {
           />
           <title>Shopeezy</title>
         </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
       </Html>
     );
   }
