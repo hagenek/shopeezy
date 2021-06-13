@@ -6,6 +6,7 @@ const HeroBox = styled.article`
   display: flex;
   flex-direction: colum;
   justify-content: center;
+  margin: 40px;
 `;
 
 const HeroBanner = () => {

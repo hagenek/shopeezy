@@ -93,11 +93,11 @@ const storeModel: StoreModel = {
     products: [
       {
         id: 513,
-        quantity: 6,
+        quantity: 1,
       },
       {
         id: 274,
-        quantity: 10,
+        quantity: 3,
       },
     ],
   },

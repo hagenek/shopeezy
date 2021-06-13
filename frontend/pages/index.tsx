@@ -1,9 +1,6 @@
 import React, { FC, useEffect } from "react";
-import Head from "next/head";
-import ProductCard from "../components/ProductCard";
-import Image from "next/image";
-import ProductList from "./products";
 import { useStoreActions, useStoreState } from "../hooks/storeHooks";
+import AllProducts from "../components/AllProducts";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -24,32 +21,7 @@ const Home: FC = () => {
 
   return (
     <>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
-          integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
-        <title>Shopeezy</title>
-      </Head>
-      <ProductsContainer>
-        <Image src="/logo.png" width={463} height={122} alt="Shopeezy logo" />
-        <ProductCard product={product} key={product.id}></ProductCard>
-      </ProductsContainer>
+      <AllProducts></AllProducts>
     </>
   );
 };

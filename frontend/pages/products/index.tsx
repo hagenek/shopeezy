@@ -1,4 +1,4 @@
-import { TextField } from "@material-ui/core";
+import { Container, TextField } from "@material-ui/core";
 import React, { FC, useEffect, useState } from "react";
 import { useStoreActions, useStoreState } from "../../hooks/storeHooks";
 import Banner from "../../components/HeroBanner";
@@ -20,7 +20,7 @@ interface ProductListProps {
   productsData: Products;
 }
 
-const ProductList: FC<ProductListProps> = ({ productsData }) => {
+const ProductList: FC<ProductListProps> = () => {
   const [term, setTerm] = useState("");
 
   const [filteredProducts, setFilteredProducts] = useState([{}]);
@@ -37,10 +37,6 @@ const ProductList: FC<ProductListProps> = ({ productsData }) => {
     fetchData();
   }, []);
 
-  const searchInNameOfProductFilterFunction = (product, term) => {
-    return product.name.includes(term);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchResults = globalProducts?.filter((product) => {
@@ -51,8 +47,7 @@ const ProductList: FC<ProductListProps> = ({ productsData }) => {
   };
 
   return (
-    <div>
-      <Banner></Banner>
+    <Container>
       <Form>
         <TextField
           size="medium"
@@ -68,24 +63,8 @@ const ProductList: FC<ProductListProps> = ({ productsData }) => {
           <ProductCard product={product} key={product.id}></ProductCard>
         ))}
       </ProductCardContainer>
-    </div>
+    </Container>
   );
 };
 
 export default ProductList;
-/*
-export async function getStaticProps(context) {
-  const res = await fetch(`http://localhost:3000/api/products/`);
-  const productData = await res.json();
-
-  if (!productData) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: { productData }, // will be passed to the page component as props
-  };
-}
- */

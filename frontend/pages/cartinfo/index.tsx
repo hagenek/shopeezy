@@ -7,17 +7,7 @@ import ProductList from "../products";
 const ShoppingCart: any = () => {
   const products = useStoreState((state) => state.products);
   const [productsInCart, setProductsInCart] = useState([] as Products);
-
   const cart = useStoreState((store) => store.cart);
-  console.log(cart);
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await axios.get(`http://localhost:3000/api/shoppingcart`);
-      const cartData = res.data;
-      setProductsInCart(cartData[5]);
-    };
-    fetchData();
-  });
 
   const productListFromCart = () => {
     const products = cart.products.map((prod: any) =>

@@ -15,6 +15,10 @@ interface ProductCardProps {
 }
 
 const ProductCard: FC<ProductCardProps> = ({ product, key }) => {
+  const addItemToCart = (id: number) => {
+    console.log("Product ID", id);
+  };
+
   return (
     <ProductCardContainer key={key}>
       <DefaultProductImage src={product.defaultImage} />
@@ -26,7 +30,9 @@ const ProductCard: FC<ProductCardProps> = ({ product, key }) => {
           currency: "USD",
         })}
       </PriceText>
-      <AddToCartButton>Add to Cart</AddToCartButton>
+      <AddToCartButton onClick={addItemToCart(product.id)}>
+        Add to Cart
+      </AddToCartButton>
     </ProductCardContainer>
   );
 };
