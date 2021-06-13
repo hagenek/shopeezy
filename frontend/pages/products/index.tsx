@@ -14,7 +14,6 @@ const ProductCardContainer = styled.section`
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
-  padding: 0;
 `;
 
 interface ProductListProps {
@@ -56,6 +55,7 @@ const ProductList: FC<ProductListProps> = ({ productsData }) => {
       <Banner></Banner>
       <Form>
         <TextField
+          size="medium"
           variant="outlined"
           label="Search for a product"
           value={term}
