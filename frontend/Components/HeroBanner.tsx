@@ -1,4 +1,4 @@
-const Banner = () => {
+const HeroBanner = () => {
   return (
     <div>
       <h1>Check out this amazing product!</h1>
@@ -6,4 +6,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default HeroBanner;

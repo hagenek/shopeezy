@@ -1,5 +1,5 @@
 import { Action, Store } from "easy-peasy";
-import { Product, Products, User } from "../constants/types";
+import { Cart, Product, Products, User } from "../constants/types";
 
 export interface StoreModel {
   drawerOpen: boolean;
@@ -10,4 +10,6 @@ export interface StoreModel {
   setProducts: Action<StoreModel, Products>;
   user: User;
   setUser: Action<StoreModel, User>;
+  cart: Cart;
+  setCart: Action<StoreModel, Cart>;
 }

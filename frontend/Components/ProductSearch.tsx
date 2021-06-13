@@ -1,7 +1,7 @@
 import { TextField } from "@material-ui/core";
 import React, { FC, useEffect, useState } from "react";
 import { useStoreActions, useStoreState } from "../hooks/storeHooks";
-import Banner from "./Banner";
+import Banner from "./HeroBanner";
 import { Products } from "../constants/types";
 
 interface ProductListProps {

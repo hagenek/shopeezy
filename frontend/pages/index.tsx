@@ -2,7 +2,7 @@ import React, { FC, useEffect } from "react";
 import Head from "next/head";
 import ProductCard from "../components/ProductCard";
 import Image from "next/image";
-import ProductList from "./products/[id]";
+import ProductList from "./products";
 import { useStoreActions, useStoreState } from "../hooks/storeHooks";
 import styled from "styled-components";
 import axios from "axios";

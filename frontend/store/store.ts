@@ -21,7 +21,23 @@ const storeModel: StoreModel = {
     price: 94127.96,
     discount: 49,
   },
-  products: [] as Products,
+  products: [
+    {
+      id: 10,
+      name: "Handcrafted Steel Salad",
+      description:
+        "The Football Is Good For Training And Recreational Purposes",
+      defaultImage: "http://placeimg.com/640/480/cats",
+      images: [
+        "http://placeimg.com/640/480/cats",
+        "http://placeimg.com/640/480/cats",
+        "http://placeimg.com/640/480/cats",
+        "http://placeimg.com/640/480/cats",
+      ],
+      price: 94127.96,
+      discount: 49,
+    },
+  ] as Products,
   setProduct: action((state, payload) => {
     state.product = payload;
   }),
@@ -71,6 +87,23 @@ const storeModel: StoreModel = {
   },
   setUser: action((state, payload) => {
     state.user = payload;
+  }),
+  cart: {
+    id: 4,
+    products: [
+      {
+        id: 513,
+        quantity: 6,
+      },
+      {
+        id: 274,
+        quantity: 10,
+      },
+    ],
+  },
+
+  setCart: action((state, payload) => {
+    state.cart = payload;
   }),
 };
 

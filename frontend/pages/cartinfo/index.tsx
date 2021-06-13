@@ -2,21 +2,17 @@ import React, { FC, useState } from "react";
 import axios from "axios";
 import { useStoreState } from "../../hooks/storeHooks";
 import { Products } from "../../constants/types";
-import ProductList from "../products/[id]";
+import ProductList from "../products";
 
-interface ShoppingCartProps {
-  cartData: any;
-}
-
-const ShoppingCart: any = ({ cartData }) => {
+const ShoppingCart: any = () => {
   const products = useStoreState((state) => state.products);
-  const cart = cartData[0];
   const [productsInCart, setProductsInCart] = useState({} as Products);
 
+  const cart = useStoreState((store) => store.cart);
   console.log(cart);
 
   const productListFromCart = () => {
-    const products = cartData[5].products.map((prod: any) =>
+    const products = cart.products.map((prod: any) =>
       products.find((p: any) => p.id === prod.id)
     );
     setProductsInCart(products);
@@ -26,7 +22,7 @@ const ShoppingCart: any = ({ cartData }) => {
 };
 
 export default ShoppingCart;
-
+/*
 export async function getStaticProps(context) {
   const res = await axios.get(`http://localhost:3000/api/shoppingcart`);
   const cartData = res.data;
@@ -41,3 +37,4 @@ export async function getStaticProps(context) {
     props: { cartData }, // will be passed to the page component as props
   };
 }
+ */

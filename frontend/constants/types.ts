@@ -40,3 +40,8 @@ export type User = {
   address: Address;
   role: string;
 };
+
+export type Cart = {
+  id: number;
+  products: CartItem[];
+};
