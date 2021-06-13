@@ -27,20 +27,22 @@ const ProductCard: FC<ProductCardProps> = ({ product, key }) => {
   };
 
   return (
-    <ProductCardContainer key={key}>
-      <DefaultProductImage src={product.defaultImage} />
-      <CardTitle>{product.name}</CardTitle>
-      <CardText>{product.description}</CardText>
-      <PriceText>
-        {product.price?.toLocaleString("en-US", {
-          style: "currency",
-          currency: "USD",
-        })}
-      </PriceText>
-      <AddToCartButton onClick={addItemToCart(product.id)}>
-        Add to Cart
-      </AddToCartButton>
-    </ProductCardContainer>
+    <div key={key}>
+      <ProductCardContainer>
+        <DefaultProductImage src={product.defaultImage} />
+        <CardTitle>{product.name}</CardTitle>
+        <CardText>{product.description}</CardText>
+        <PriceText>
+          {product.price?.toLocaleString("en-US", {
+            style: "currency",
+            currency: "USD",
+          })}
+        </PriceText>
+        <AddToCartButton onClick={addItemToCart(product.id)}>
+          Add to Cart
+        </AddToCartButton>
+      </ProductCardContainer>
+    </div>
   );
 };
 

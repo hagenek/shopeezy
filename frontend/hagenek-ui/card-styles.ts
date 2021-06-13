@@ -42,6 +42,7 @@ export const ProductCardContainer = styled.article`
   flex-direction: column;
   overflow: hidden;
   max-width: 300px;
+  height: 500px;
 `;
 
 export const AddToCartButton = styled.button`

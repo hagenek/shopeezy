@@ -5,11 +5,11 @@ const Button = styled.button`
   border: none;
   outline: 0;
   color: ${secondary};
-  width: 150px;
-  height: 60px;
   background-color: ${primaryBold};
   text-align: center;
+  padding: 17px 35px;
   cursor: pointer;
+  margin-top: 3px;
   margin-left: 10px;
   font-size: 16px;
   border-radius: 3px;

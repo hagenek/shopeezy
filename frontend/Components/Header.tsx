@@ -1,6 +1,8 @@
 import { primaryBold, secondary } from "../css/colors";
 import styled from "styled-components";
 import React from "react";
+import { ShoppingCart } from "@material-ui/icons";
+import { useStoreState } from "../hooks/storeHooks";
 
 const HeaderLinkText = styled.a`
   font-family: Lato;
@@ -29,7 +31,14 @@ const TopNav = styled.nav`
   display: flex;
 `;
 
+const IconPlusText = styled.div`
+  vertical-align: middle;
+  display: inline-flex;
+`;
+
 const Header = () => {
+  const cart = useStoreState((state) => state.cart);
+
   return (
     <header>
       <TopNav className="topnav">
@@ -37,7 +46,9 @@ const Header = () => {
         <HeaderLinkText href="/profile">My Account</HeaderLinkText>
         <HeaderLinkText href="/products">Products</HeaderLinkText>
         <HeaderLinkText href="/cartinfo">
-          <i className="fas fa-shopping-cart"></i>
+          <IconPlusText>
+            <ShoppingCart /> ({cart.products.length ?? 0})
+          </IconPlusText>
         </HeaderLinkText>
       </TopNav>
     </header>

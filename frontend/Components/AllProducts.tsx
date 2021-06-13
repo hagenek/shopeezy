@@ -21,11 +21,9 @@ const AllProducts: FC<any> = () => {
 
   return (
     <Container>
-      <ProductCardContainer>
-        {globalProducts?.map((product: Product) => (
-          <ProductCard product={product} key={product.id}></ProductCard>
-        ))}
-      </ProductCardContainer>
+      {globalProducts?.map((product: Product) => (
+        <ProductCard product={product} key={product.id}></ProductCard>
+      ))}
     </Container>
   );
 };

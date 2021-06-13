@@ -1,8 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
+const CopyrightFooter = styled.footer`
+  margin-top: 40px;
+`;
+
 const Footer = () => {
-  return <footer>COPYRIGHT ©2021</footer>;
+  return (
+    <CopyrightFooter>
+      COPYRIGHT ©2021 @Hagenek
+      <p>Coffee + Pizza = Code</p>
+    </CopyrightFooter>
+  );
 };
 
 export default Footer;
