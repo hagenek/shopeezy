@@ -1,5 +1,3 @@
-import { Grid } from "@material-ui/core";
-import { useStoreState } from "../hooks/storeHooks";
 import { Product } from "../constants/types";
 import React, { FC } from "react";
 import {
@@ -19,18 +17,16 @@ interface ProductCardProps {
 const ProductCard: FC<ProductCardProps> = ({ product, key }) => {
   return (
     <ProductCardContainer key={key}>
-      <article>
-        <DefaultProductImage src={product.defaultImage} />
-        <CardTitle>{product.name}</CardTitle>
-        <CardText>{product.description}</CardText>
-        <PriceText>
-          {product.price?.toLocaleString("en-US", {
-            style: "currency",
-            currency: "USD",
-          })}
-        </PriceText>
-        <AddToCartButton>Add to Cart</AddToCartButton>
-      </article>
+      <DefaultProductImage src={product.defaultImage} />
+      <CardTitle>{product.name}</CardTitle>
+      <CardText>{product.description}</CardText>
+      <PriceText>
+        {product.price?.toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD",
+        })}
+      </PriceText>
+      <AddToCartButton>Add to Cart</AddToCartButton>
     </ProductCardContainer>
   );
 };

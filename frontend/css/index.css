@@ -23,3 +23,7 @@ button:hover {
 .footer {
   flex-shrink: 0;
 }
+
+img :hover {
+  filter: contrast(100%);
+}

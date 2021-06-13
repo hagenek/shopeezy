@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { primary, primaryBold, secondary } from "../css/colors";
+import { primaryBold, secondary } from "../css/colors";
 import styled from "styled-components";
 import React from "react";
 
@@ -35,9 +34,11 @@ const Header = () => {
     <header>
       <TopNav className="topnav">
         <HeaderLogoText href="/">Shopeezy</HeaderLogoText>
-        <HeaderLinkText href="profile">Profile</HeaderLinkText>
-        <HeaderLinkText href="#contact">Contact</HeaderLinkText>
-        <HeaderLinkText href="#about">About</HeaderLinkText>
+        <HeaderLinkText href="/profile">My Account</HeaderLinkText>
+        <HeaderLinkText href="/products">Products</HeaderLinkText>
+        <HeaderLinkText href="/cartinfo">
+          <i className="fas fa-shopping-cart"></i>
+        </HeaderLinkText>
       </TopNav>
     </header>
   );

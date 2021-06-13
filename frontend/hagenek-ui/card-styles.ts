@@ -14,14 +14,43 @@ export const CardText = styled.p`
 `;
 
 export const DefaultProductImage = styled.img`
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   max-width: 300px;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  filter: contrast(70%);
+  //filter: saturate(180%);
+  overflow: hidden;
+  position: relative;
+  transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%; // 16:9 aspect ratio
+  }
+  @media (min-width: 40rem) {
+    &::before {
+      padding-top: 66.6%; // 3:2 aspect ratio
+    }
+  }
 `;
 
 export const ProductCardContainer = styled.article`
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: white;
+  border-radius: 0.25rem;
+  margin: 10px;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  &:hover {
+    .card__image {
+      filter: contrast(100%);
+    }
+  }
   max-width: 300px;
-  text-align: center;
-  flex: 1;
 `;
 
 export const AddToCartButton = styled.button`

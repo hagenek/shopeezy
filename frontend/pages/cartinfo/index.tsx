@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import axios from "axios";
 import { useStoreState } from "../../hooks/storeHooks";
 import { Products } from "../../constants/types";
@@ -6,10 +6,18 @@ import ProductList from "../products";
 
 const ShoppingCart: any = () => {
   const products = useStoreState((state) => state.products);
-  const [productsInCart, setProductsInCart] = useState({} as Products);
+  const [productsInCart, setProductsInCart] = useState([] as Products);
 
   const cart = useStoreState((store) => store.cart);
   console.log(cart);
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await axios.get(`http://localhost:3000/api/shoppingcart`);
+      const cartData = res.data;
+      setProductsInCart(cartData[5]);
+    };
+    fetchData();
+  });
 
   const productListFromCart = () => {
     const products = cart.products.map((prod: any) =>
@@ -18,7 +26,7 @@ const ShoppingCart: any = () => {
     setProductsInCart(products);
   };
 
-  return <div>{productsInCart[0].name}</div>;
+  return <div>{productsInCart[0]?.name}</div>;
 };
 
 export default ShoppingCart;

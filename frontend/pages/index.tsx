@@ -37,11 +37,18 @@ const Home: FC = () => {
           href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
           rel="stylesheet"
         />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
         <title>Shopeezy</title>
       </Head>
       <ProductsContainer>
         <Image src="/logo.png" width={463} height={122} alt="Shopeezy logo" />
-        <ProductCard product={product}></ProductCard>
+        <ProductCard product={product} key={product.id}></ProductCard>
       </ProductsContainer>
     </>
   );
