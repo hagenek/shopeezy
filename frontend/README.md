@@ -37,7 +37,3 @@ https://github.com/vercel/next.js/tree/master/examples/with-typescript-eslint-je
 
 - does not use CSS files
 - uses `babel-jest` instead of `ts-jest`
-
----
-
-https://github.com/arcatdmz/nextjs-with-jest-typescript
