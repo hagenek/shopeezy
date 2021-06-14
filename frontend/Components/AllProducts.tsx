@@ -4,12 +4,11 @@ import React, { FC, useEffect } from "react";
 import { Product, Products } from "../constants/types";
 import { ProductCardContainer } from "../hagenek-ui/card-styles";
 import ProductCard from "./ProductCard";
-import { Container } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 
 const AllProducts: FC<any> = () => {
-  const globalProducts = useStoreState((state) => state.products);
   const setGlobalProducts = useStoreActions((action) => action.setProducts);
-
+  const globalProducts = useStoreState((state) => state.products);
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get(`http://localhost:3000/api/products/`);
@@ -20,11 +19,11 @@ const AllProducts: FC<any> = () => {
   }, []);
 
   return (
-    <Container>
+    <Grid container>
       {globalProducts?.map((product: Product) => (
         <ProductCard product={product} key={product.id}></ProductCard>
       ))}
-    </Container>
+    </Grid>
   );
 };
 

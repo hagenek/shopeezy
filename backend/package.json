@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "json-server ./generator.js --port 8080 --delay 500"
+    "start": "json-server ./generator.js --port 8080 --delay 200"
   },
   "dependencies": {
     "faker": "^5.4.0",

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const CopyrightFooter = styled.footer`
-  margin-top: 40px;
+  margin-top: 50px;
 `;
 
 const Footer = () => {

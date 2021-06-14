@@ -20,16 +20,11 @@ const ProductList: FC<ProductListProps> = ({ productsData }) => {
     setProducts(productsData);
   }, []);
 
-  const searchInNameOfProductFilterFunction = (product, term) => {
-    return product.name.includes(term);
-  };
-
   const handleInputChange = (term: string) => {
     const searchResults = productsData.filter((product) => {
       return product.name.includes(term);
     });
     setFilteredProducts(searchResults);
-    console.log("Filtered products: ", filteredProducts);
   };
 
   return (

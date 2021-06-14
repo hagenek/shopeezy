@@ -32,12 +32,11 @@ img :hover {
 Order Summary Card
 */
 .summary_card {
-  background-color: #fff;
   width: 350px;
-  height: 400px;
+  background-color: #fff;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  padding: 10px;
+  padding: 20px;
 }
 
 /*
