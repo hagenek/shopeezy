@@ -1,6 +1,9 @@
 import React from "react";
 import { AppProps } from "next/app";
 import { StoreProvider } from "easy-peasy";
+{
+  /* @ts-ignore */
+}
 import Layout from "../components/Layout";
 import store from "../store/store";
 import {
