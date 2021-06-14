@@ -8,7 +8,7 @@ import ProductCard from "../components/ProductCard";
 import HeroBanner from "../components/HeroBanner";
 
 const Home = () => {
-  const [term, setTerm] = useState("");
+  const [term, setTerm] = useState("fish");
 
   const [filteredProducts, setFilteredProducts] = useState([]);
   const setGlobalProducts = useStoreActions((action) => action.setProducts);
@@ -21,6 +21,10 @@ const Home = () => {
       setGlobalProducts(productsData);
     };
     fetchData();
+    const searchResults = globalProducts?.filter((product) => {
+      return product.name.toLowerCase().includes(term);
+    });
+    setFilteredProducts(searchResults);
   }, []);
 
   const handleSubmit = (e) => {

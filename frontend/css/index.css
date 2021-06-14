@@ -18,6 +18,7 @@ main {
   background-color: #ffab00;
   color: #202020;
   border-radius: 40px;
+  cursor: pointer;
 }
 
 button:hover {
