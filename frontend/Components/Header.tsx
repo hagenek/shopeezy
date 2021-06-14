@@ -37,21 +37,13 @@ const IconPlusText = styled.div`
   display: inline-flex;
 `;
 
-function useForceUpdate() {
-  const [value, setValue] = useState(0); // integer state
-  return () => setValue((value) => value + 1); // update the state to force render
-}
-
 const Header = () => {
-  const forceUpdate = useForceUpdate();
-  setInterval(() => forceUpdate(), 200);
-
   const cart = useStoreState((state) => state.cart);
 
   return (
     <header>
       <TopNav className="topnav">
-        <Link href="<7">
+        <Link href="/">
           <HeaderLogoText>Shopeezy</HeaderLogoText>
         </Link>
         <Link href="profile">
@@ -63,7 +55,7 @@ const Header = () => {
         <Link href="cartinfo">
           <HeaderLinkText>
             <IconPlusText>
-              <ShoppingCart /> ({cart.products?.length ?? 0})
+              <ShoppingCart />
             </IconPlusText>
           </HeaderLinkText>
         </Link>
