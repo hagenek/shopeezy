@@ -1,15 +1,12 @@
 import React from "react";
 import { AppProps } from "next/app";
 import { StoreProvider } from "easy-peasy";
-{
-  /* @ts-ignore */
-}
-import Layout from "../components/Layout";
 import store from "../store/store";
 import {
   DefaultToastContainer,
   ToastProvider,
 } from "react-toast-notifications";
+import { Layout } from "../components/Layout";
 
 import "../css/index.css";
 
